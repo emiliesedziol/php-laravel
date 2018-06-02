@@ -1,12 +1,11 @@
 <?php
-  $name = "me";
-
-
 
 ?>
 <!DOCTYPE html>
 <html>
 <body>
-  <?php echo "my name is {$name}" ?>
+  <br>
+
+
 </body>
 </html>
