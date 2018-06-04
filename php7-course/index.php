@@ -1,39 +1,34 @@
 <?php
 
-  // send to the browser
-  // http://localhost:8888/?username="bob1234"&lastname=smith&firstname=bob
-  /*
-      username: "bob1234"
+  require("classes/car.php");
+  require("classes/Honda.php");
+  require("classes/Bmw.php");
 
-      Last Name: smith
+  $car1 = new Honda("Civic", 2, "blue", "25,000.00");
+  $car1->statement();
+  $car1->price();
 
-      First Name: bob
-      //before html form was added
-  */
-  if(isset($_GET['username'])) {
-    echo "<h2>username: {$_GET['username']}</h2>";
-    echo "<h2>Last Name: {$_GET['lastname']}</h2>";
-    echo "<h2>First Name: {$_GET['firstname']}</h2>";
-  }
+  $car2 = new Honda("Accord", 5, "grey", "26,000.00");
+  $car2->statement();
+  $car2->price();
 
+  $car3 = new Bmw("X5", 2, "white", "54,000.00");
+  $car3->statement();
+  $car3->price();
+  $car3->sportsPackage();
 
-
-  //post send back to page send button in http
-  if(isset($_POST["username"])) {
-    echo $_POST["username"];
-  }
 ?>
 <!DOCTYPE html>
 <html>
 <body>
   <br>
+  <?php
 
-  <form action="index.php" method="post">
-    <label for="username">Username</label>
-      <input type="text" name="username:">
-      <input type="password" name="password:">
+   ?>
 
-      <button type="submit">Send</button>
-  </form>
+   <pre>
+     <?php  ?>
+  </pre>
+
 </body>
 </html>
