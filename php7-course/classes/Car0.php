@@ -1,6 +1,6 @@
 <?php
 
-  class Car extends Story{
+  class Car {
 
     private $location = "somewhere";
   //  public static $city = "Cincinnati";
@@ -29,10 +29,6 @@
       foreach (self::$states as $state) {
         echo "<br>".$state;
       }
-    }
-
-    public function printCompanyYears(){
-      return $this->companyYears;
     }
   }
 ?>

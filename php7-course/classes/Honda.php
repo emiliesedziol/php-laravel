@@ -2,6 +2,7 @@
 
   class Honda extends Car {
     public $company = "Honda";
+    public $companyYears = 34;
 
     public function __construct($name, $doors, $color, $price,
           Inventory $inventory) {
@@ -15,8 +16,10 @@
     public function price(){
       echo "<h3>The price of this {$this->company} {$this->name} is {$this->price}</h3>";
       $this->store();
-      echo "<br>"; 
-      echo $this->inventory->carTotal($this->company);
+      // echo "<br> carTotal ";
+      echo $this->inventory->carTotal($this->company, 4);
+      // echo "<br> carsSold ";
+      echo $this->inventory->carsSold("4");
     }
 
     // can only be used in this class

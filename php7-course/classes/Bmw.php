@@ -3,6 +3,7 @@
 
   class Bmw extends Car {
     public $company = "BMW";
+    public $companyYears = 54;
 
     // dependency injection adding the class Invendory
     public function __construct($name, $doors, $color, $price, Inventory $inventory) {

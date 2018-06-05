@@ -1,7 +1,10 @@
 <?php
 
   require("classes/abstractStory.php");
-  require("vendor/autoload.php");
+  require("classes/inventory.php");
+  require("classes/car.php");
+  require("classes/Honda.php");
+  require("classes/Bmw.php");
 
   $car1 = new Honda("Civic", 2, "blue", "25,000.00", new Inventory);
 //  $car1->statement();
@@ -19,10 +22,6 @@
   $car3->price();
   $car3->sportsPackage();
   $car3->storyTime();
-
-  $myName = new Text("Billy Bob");
-  $myName-> uppercase()->reverse()->print();
-
 /*
   //  echo "<br>".car::$city;
   echo "<br>".Car::city();
