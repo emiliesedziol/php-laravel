@@ -68,7 +68,7 @@
         </td>
       </tr>
     <?php } ?>
-
+  </table>
     <a href="/">Go Back</a>
   </body>
 
