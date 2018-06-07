@@ -21,7 +21,7 @@
 
         $id = $pdo->lastInsertId();
 
-        echo "<script>location.href='/read.php?show=one&id={$id}'</script>";
+        echo "<script>location.href='/?show=one&id={$id}'</script>";
     } catch(PDOException $e)  {
       echo "<h4 style='color: red;'>".$e->getMessage()."</h4>";
     }
@@ -44,7 +44,7 @@
         <input type="text" name="age" value=""><br>
         <button type="submit">Save</button>
     </form>
-    <a href="/read.php?show=all">Go Back</a>
+    <a href="/">Go Back</a>
   </body>
 
 </html>

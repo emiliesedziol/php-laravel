@@ -16,10 +16,12 @@
     } catch(PDOException $e)  {
       echo "<h4 style='color: red;'>".$e->getMessage()."</h4>";
     }
+  } else {
+    echo "<script>location.href='/'</script";
   }
 
   if($_GET["show"] == "one" && isset($_GET["id"])) {
-    // http://localhost:8888/read.php?show=one&id=1
+    // http://localhost:8888/?show=one&id=1
       $id = $_GET["id"];
       // echo "id {$id} <br>";
       try {
@@ -67,7 +69,7 @@
       </tr>
     <?php } ?>
 
-    <a href="/read.php?show=all">Go Back</a>
+    <a href="/">Go Back</a>
   </body>
 
 </html>

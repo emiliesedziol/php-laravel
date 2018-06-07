@@ -69,7 +69,7 @@
           echo $results[0]->age ?>"><br>
         <button type="submit">Save</button>
     </form>
-    <a href="/read.php?show=all">Go Back</a>
+    <a href="/index.php">Go Back</a>
   </body>
 
 </html>
