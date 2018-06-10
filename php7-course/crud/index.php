@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <a href="create.php?show=all">Create User</a>
+    <a href="create.php">Create User</a>
       <a href="read.php?show=all">Show All Users</a>
   </body>
 
