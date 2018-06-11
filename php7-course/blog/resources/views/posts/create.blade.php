@@ -7,13 +7,13 @@
 @endsection
 
 @section('content')
-<form action="/posts" method="Posts">
+<form action="/posts" method="POST">
   {{ csrf_field() }}
   <h1>Create a post</h1>
   <hr>
 <div class="form-group">
   <label for="title">Title</label>
-  <input type="title" class="form-control" id="title" aria-describedby="titleHelp"
+  <input type="title" class="form-control" id="title"
   placeholder="Enter Title" name="title">
 </div>
 <div class="form-group">

@@ -9,8 +9,7 @@
 @section('content')
 <form action="/posts/title" method="Posts">
   {{ csrf_field() }}
-  @method('PUT')
-  @csrf
+
   <h1>Edit a post</h1>
   <hr>
 <div class="form-group">
