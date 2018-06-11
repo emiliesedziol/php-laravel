@@ -14,10 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-      $posts = [
-        1, 2, 3, 4
-      ];
-        return view('posts/index', compact('posts'));
+      $user_name = "Tigger";
+        return view('pages/home', compact('user_name'));
     }
 
     /**
@@ -27,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts/create');
+        return 'create page, PostController';
     }
 
     /**
@@ -38,7 +36,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->title;
+        return 'store page, PostController';
     }
 
     /**
@@ -49,7 +47,7 @@ class PostController extends Controller
      */
     public function show(Post $post, $title)
     {
-        return view('posts/show');
+        return "show {$title} page, PostController";
     }
 
     /**
@@ -60,7 +58,7 @@ class PostController extends Controller
      */
     public function edit(Post $post, $title)
     {
-        return view('posts/edit');
+        return 'edit page, PostController';
     }
 
     /**
