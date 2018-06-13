@@ -1,13 +1,10 @@
 @extends('layouts.main')
 
-@section('title', 'Home page, in home.blade.php, displayed in main.blade.php')
+@section('title', 'Edit post')
 
-@section('sidebar')
-    <p>This is the side bar</p>
-@endsection
 
 @section('content')
-<form action="/posts/title" method="Posts">
+<form action="/posts/{{ $post->id }}" method="POST">
   {{ csrf_field() }}
 
   <h1>Edit a post</h1>
@@ -15,12 +12,13 @@
 <div class="form-group">
   <label for="title">Title</label>
   <input type="title" class="form-control" id="title" aria-describedby="titleHelp"
-  placeholder="Enter Title" name="title">
+  placeholder="Enter Title" name="title" value="{{ $post->title }}">
 </div>
 <div class="form-group">
   <label for="content">Content</label>
-  <textarea class="form-control" name="content" id="content" placeholder="Content"></textarea>
+  <textarea class="form-control" name="content" id="content" placeholder="Content">
+  {{ $post->content }}</textarea>
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary">Save</button>
 </form>
 @endsection

@@ -9,9 +9,9 @@
 @section('content')
   @foreach($posts as $post)
     <a href="/posts/title">
-      <h1>Title of posts</h1>
+      <h1>{{ $post->title }}</h1>
     </a>
-    <p> paragraph</p>
+    <p>{{ $post->content }}</p>
 
     <hr>
 
