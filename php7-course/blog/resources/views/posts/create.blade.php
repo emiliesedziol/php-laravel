@@ -20,6 +20,13 @@
   <label for="content">Content</label>
   <textarea class="form-control" name="content" id="content" placeholder="Content"></textarea>
 </div>
+
+<select class="" name="category_id">
+  @foreach ($categories as $category)
+      <option value="{{$category->id}}">{{ $category->name }}</Option>
+  @endforeach
+</select>
+
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection
