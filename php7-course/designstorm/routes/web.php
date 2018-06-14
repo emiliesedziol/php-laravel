@@ -11,23 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages/home');
-});
+Route::get('/', 'PageController@index');
 
+Route::get('/results', 'PageController@results');
 
-Route::get('/register', function () {
-    return view('pages/register');
-});
+Route::get('/account', 'AccountController@index');
 
-Route::get('/login', function () {
-    return view('pages/login');
-});
-
-Route::get('/results', function () {
-    return view('pages/results');
-});
-
-Route::get('/account', function () {
-    return view('account/dashboard');
-});
+Auth::routes();
