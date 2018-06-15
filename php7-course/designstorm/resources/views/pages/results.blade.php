@@ -27,6 +27,7 @@
 
                         <div class="add-btn "><i class="fa fa-check" aria-hidden="true"></i></div>
                       </div>
+                      <h4>{{ $project->name }}</h4>
                     </div>
                   </div>
                 @endforeach

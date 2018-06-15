@@ -28,25 +28,31 @@ class PageController extends Controller
         "https://api.behance.net/v2/projects",
         ["query" => [
           "q"=>$request->searchForThis,
-          "client_id" => "oDlfZpUkt2LxvuOuymMieOpTCXUUMQvR"
+          "client_id" => "oDlfZpUkt2LxvuOuymMieOpTCXUUMQvR",
+          "fields" => "Web_Design"
           ]]);
 
       $data = $res->getBody();
       $data = json_decode($data);
-      $filteredData = [];
+      // to filter the data to include only (array) fields with 'Web Design' in the array
+      // the following works, need to find out if there is another way
 
-      // return $data->projects;
       foreach($data->projects as $project) {
         $fields = $project->fields;
-
-        if(in_array("UI/UX", $fields) || in_array("Web Design", $fields)) {
-          array_push($filteredData, $project);
+//        echo '<pre>';print_r($fields);echo '</pre>';
+        if (in_array("Web Design", $fields)) {
+//          echo "Web Design found";
+          $filteredData[] = $project;
         }
+        // var_dump($fields);
+    /*    if (in_array("Web Design", $fields)) {
+          array_push($filteredData, $project);
+        } */
       }
 
-//      return count($filteredData);
+// return $filteredData;
 
       $user = Auth::user();
-      return view('pages/results', compact('user', 'filteredData', 'searchForThis'));
+      return view('pages/results', compact('user', 'filteredData', 'searchForThis', 'fieldsReturned'));
     }
 }
