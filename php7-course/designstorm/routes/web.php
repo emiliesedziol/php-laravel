@@ -13,7 +13,7 @@
 
 Route::get('/', 'PageController@index');
 
-Route::get('/results', 'PageController@results');
+Route::post('/results', 'PageController@results');
 
 Route::get('/account', 'AccountController@index');
 

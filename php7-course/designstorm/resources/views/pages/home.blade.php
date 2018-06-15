@@ -11,8 +11,11 @@
     <div id="home">
       <div class="search-area">
         <div class="search-container">
-          <h1>DesignStorm</h1>
-          <input class="search" type="text" value="" placeholder="Search">
+          <form action="/results" method="POST">
+            {{ csrf_field() }}
+            <h1>DesignStorm</h1>
+            <input class="search" type="text" value="" placeholder="Search" name="searchForThis">
+          </form>
         </div>
       </div>
     </div>
