@@ -24,14 +24,18 @@ class PageController extends Controller
       $client = new Client();
       $searchForThis = $request->searchForThis;
 
-      $res = $client->request('GET',
+    //  The following works with the foreach loop
+        $res = $client->request('GET',
         "https://api.behance.net/v2/projects",
         ["query" => [
           "q"=>$request->searchForThis,
-          "client_id" => "oDlfZpUkt2LxvuOuymMieOpTCXUUMQvR",
-          "fields" => "Web_Design"
+          "client_id" => env("BEHANCE_KEY")
           ]]);
 
+// the following has a problem
+//      $res = client->request('GET',
+//        "https://api.behance.net/v2/projects?q=".urlencode($searchForThis)
+//        ."&client_id=".env("BEHANCE_KEY")."&fields=".urlencode("web design"));
       $data = $res->getBody();
       $data = json_decode($data);
       // to filter the data to include only (array) fields with 'Web Design' in the array
@@ -39,15 +43,9 @@ class PageController extends Controller
 
       foreach($data->projects as $project) {
         $fields = $project->fields;
-//        echo '<pre>';print_r($fields);echo '</pre>';
         if (in_array("Web Design", $fields)) {
-//          echo "Web Design found";
           $filteredData[] = $project;
         }
-        // var_dump($fields);
-    /*    if (in_array("Web Design", $fields)) {
-          array_push($filteredData, $project);
-        } */
       }
 
 // return $filteredData;
