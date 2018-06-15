@@ -18,19 +18,23 @@
             <div class="boxes">
               <div class="row">
 
-                @foreach ($filteredData as $project)
-                  <div class="col-md-3">
-                    <div class="box">
-                    <!--  <div style="position: relative; background: url('{{ $project->covers->original }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
-  a string original is above , when a number it has to be in {''} as below-->
-                        <div style="position: relative; background: url('{{ $project->covers->{'404'} }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
+                @if(count($filteredData) >= 1)
+                  @foreach ($filteredData as $project)
+                    <div class="col-md-3">
+                      <div class="box">
+                      <!--  <div style="position: relative; background: url('{{ $project->covers->original }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
+    a string original is above , when a number it has to be in {''} as below-->
+                          <div style="position: relative; background: url('{{ $project->covers->{'404'} }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
 
-                        <div class="add-btn "><i class="fa fa-check" aria-hidden="true"></i></div>
+                          <div class="add-btn "><i class="fa fa-check" aria-hidden="true"></i></div>
+                        </div>
+                        <h4>{{ $project->name }}</h4>
                       </div>
-                      <h4>{{ $project->name }}</h4>
                     </div>
-                  </div>
-                @endforeach
+                  @endforeach
+                @else
+                  <h1> Nothing was found </h1>
+                @endif
 
               </div>
             </div>

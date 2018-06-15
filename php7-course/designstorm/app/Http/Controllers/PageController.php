@@ -33,11 +33,14 @@ class PageController extends Controller
           ]]);
 
 // the following has a problem
+// $res = $client->request('GET', "https://api.behance.net/v2/projects?q=".urlencode($searchForThis) ."&client_id=".env("BEHANCE_KEY")."&field=".urlencode("web design"));
 //      $res = client->request('GET',
 //        "https://api.behance.net/v2/projects?q=".urlencode($searchForThis)
 //        ."&client_id=".env("BEHANCE_KEY")."&fields=".urlencode("web design"));
       $data = $res->getBody();
       $data = json_decode($data);
+      $filteredData =[];
+
       // to filter the data to include only (array) fields with 'Web Design' in the array
       // the following works, need to find out if there is another way
 
@@ -51,6 +54,6 @@ class PageController extends Controller
 // return $filteredData;
 
       $user = Auth::user();
-      return view('pages/results', compact('user', 'filteredData', 'searchForThis', 'fieldsReturned'));
+      return view('pages/results', compact('user', 'filteredData', 'searchForThis'));
     }
 }
