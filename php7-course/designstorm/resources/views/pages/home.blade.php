@@ -14,7 +14,7 @@
           <form action="/results" method="POST">
             {{ csrf_field() }}
             <h1>DesignStorm</h1>
-            <input class="search" type="text" value="" placeholder="Search" name="searchForThis">
+            <input class="search" type="text" value="" placeholder="Search" name="keyword">
           </form>
         </div>
       </div>

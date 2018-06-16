@@ -12,7 +12,7 @@
             <div class="search-container">
               <form action="/results" method="POST">
                   {{ csrf_field() }}
-                <input class="search" type="text" value="{{ $searchForThis }}" placeholder="Search", name="search">
+                <input class="search" type="text" value="{{ $keyword }}" placeholder="Search", name="search">
             </form>
             </div>
             <div class="boxes">
@@ -26,7 +26,12 @@
     a string original is above , when a number it has to be in {''} as below-->
                           <div style="position: relative; background: url('{{ $project->covers->{'404'} }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
 
-                          <div class="add-btn "><i class="fa fa-check" aria-hidden="true"></i></div>
+                          <a href="/projects/addimage/{{$project->id}}">
+                            <div class="add-btn ">
+                              <i class="fa fa-check" aria-hidden="true">
+                              </i>
+                            </div>
+                          </a>
                         </div>
                         <h4>{{ $project->name }}</h4>
                       </div>

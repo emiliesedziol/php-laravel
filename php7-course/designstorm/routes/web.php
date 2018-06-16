@@ -15,6 +15,12 @@ Route::get('/', 'PageController@index');
 
 Route::post('/results', 'PageController@results');
 
+Route::get('/search', 'PageController@index');
+
+Route::get('/search/{keyword}', 'PageController@search');
+
 Route::get('/account', 'AccountController@index');
+
+Route::get('/projects/addimage/{id}', 'ProjectController@addImage');
 
 Auth::routes();
