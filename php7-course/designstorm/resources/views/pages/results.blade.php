@@ -19,21 +19,21 @@
               <div class="row">
 
                 @if(count($filteredData) >= 1)
-                  @foreach ($filteredData as $project)
+                  @foreach ($filteredData as $insperation)
                     <div class="col-md-3">
                       <div class="box">
-                      <!--  <div style="position: relative; background: url('{{ $project->covers->original }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
+                      <!--  <div style="position: relative; background: url('{{ $insperation->covers->original }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
     a string original is above , when a number it has to be in {''} as below-->
-                          <div style="position: relative; background: url('{{ $project->covers->{'404'} }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
+                          <div style="position: relative; background: url('{{ $insperation->covers->{'404'} }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
 
-                          <a href="/projects/addimage/{{$project->id}}">
+                          <a href="/projects/insperation/{{$insperation->id}}/add">
                             <div class="add-btn ">
                               <i class="fa fa-check" aria-hidden="true">
                               </i>
                             </div>
                           </a>
                         </div>
-                        <h4>{{ $project->name }}</h4>
+                        <h4>{{ $insperation->name }}</h4>
                       </div>
                     </div>
                   @endforeach
