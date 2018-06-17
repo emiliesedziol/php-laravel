@@ -19,7 +19,7 @@
             All of the projects
           </div>
           <div class="col-md-2">
-            <a href="/projects/create">Add New Project</a>
+            <a href="/account/projects/create">Add New Project</a>
           </div>
         </div>
           <div class="row">
@@ -36,8 +36,8 @@
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>Websites</td>
-                    <td><a href="/projects/id/edit" class="edit-btn">Edit</a></td>
+                    <td><a href="/account/projects/id">Show Websites</a></td>
+                    <td><a href="/account/projects/id/edit" class="edit-btn">Edit</a></td>
                   </tr>
                 </tbody>
               </table>

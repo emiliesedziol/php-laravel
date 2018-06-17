@@ -17,8 +17,8 @@ Route::get('/account/projects/create', 'ProjectController@create');
 Route::post('/account/projects', 'ProjectController@store');
 Route::get('/account/projects/{id}', 'ProjectController@show');
 Route::get('/account/projects/{id}/edit', 'ProjectController@edit');
-Route::get('/account/projects/{id}', 'ProjectController@update');
-Route::get('/account/projects/{id}', 'ProjectController@destroy');
+Route::put('/account/projects/{id}', 'ProjectController@update');
+Route::get('/account/projects/{id}/delete', 'ProjectController@destroy');
 
 
 //pages
