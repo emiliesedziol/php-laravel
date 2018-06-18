@@ -1,7 +1,5 @@
 @extends('layouts/account')
 
-
-
 @section('title')
   Account dashboard
 @endsection
@@ -19,7 +17,7 @@
       <div class="box">
           <div class="row">
             <div class="col-md-10">
-              <form action="/account/projects/id" method="POST">
+              <form action="/account/projects/{{ $project->id }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                 <div class="row">
@@ -31,52 +29,22 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <input type="text" name="title">
+                    <input type="text" name="title", value="{{ $project->title }}">
                   </div>
                   <div class="col-md-2">
                     <center>
-                      <a href="/account/project/id/delete" onclick="confirm()" class="delete-btn">Delete</a>
+                      <a href="/account/projects/{{ $project->id }}/delete" onclick="confirm()" class="delete-btn">Delete</a>
                     </center>
                   </div>
                 </div>
                   <div class="img-section">
                     <div class="row">
-                          <div class="col-md-3">
+                          <!-- <div class="col-md-3">
                             <div class="box">
                               <div style="position: relative; background: url('https://mir-s3-cdn-cf.behance.net/projects/404/35f74464796667.Y3JvcCw4MTAsNjM0LDAsMA.png') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
                             </div>
                             </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="box">
-                              <div style="position: relative; background: url('https://mir-s3-cdn-cf.behance.net/projects/404/35f74464796667.Y3JvcCw4MTAsNjM0LDAsMA.png') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
-                            </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="box">
-                              <div style="position: relative; background: url('https://mir-s3-cdn-cf.behance.net/projects/404/35f74464796667.Y3JvcCw4MTAsNjM0LDAsMA.png') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
-                            </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="box">
-                              <div style="position: relative; background: url('https://mir-s3-cdn-cf.behance.net/projects/404/35f74464796667.Y3JvcCw4MTAsNjM0LDAsMA.png') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
-                            </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="box">
-                              <div style="position: relative; background: url('https://mir-s3-cdn-cf.behance.net/projects/404/35f74464796667.Y3JvcCw4MTAsNjM0LDAsMA.png') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
-                            </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="box">
-                              <div style="position: relative; background: url('https://mir-s3-cdn-cf.behance.net/projects/404/35f74464796667.Y3JvcCw4MTAsNjM0LDAsMA.png') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
-                            </div>
-                            </div>
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
