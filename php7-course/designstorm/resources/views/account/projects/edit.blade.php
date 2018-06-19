@@ -39,12 +39,14 @@
                 </div>
                   <div class="img-section">
                     <div class="row">
-                          <!-- <div class="col-md-3">
+                      @foreach ($project->insperations as $insperation)
+                         <div class="col-md-3">
                             <div class="box">
-                              <div style="position: relative; background: url('https://mir-s3-cdn-cf.behance.net/projects/404/35f74464796667.Y3JvcCw4MTAsNjM0LDAsMA.png') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
+                              <div style="position: relative; background: url('{{ $insperation->image_url }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;"></div>
+                              <a href="/projects/insperation/{{ $insperation->image_ }}/delete">Delete</a>
                             </div>
-                            </div>
-                          </div> -->
+                          </div>
+                        @endforeach
                         </div>
                       </div>
                     </div>

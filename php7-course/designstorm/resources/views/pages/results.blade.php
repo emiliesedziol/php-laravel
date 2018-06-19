@@ -24,7 +24,7 @@
                       <div class="box">
                       <!--  <div style="position: relative; background: url('{{ $insperation->covers->original }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
     a string original is above , when a number it has to be in {''} as below-->
-                          <div style="position: relative; background: url('{{ $insperation->covers->{'404'} }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
+                          <div style="position: relative; background: url('{{ $insperation->covers->original }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
 
                           <!-- <a href="/projects/insperation/{{$insperation->id}}/add/{{ $insperation->covers->{'404'} }}">  -->
                           @php

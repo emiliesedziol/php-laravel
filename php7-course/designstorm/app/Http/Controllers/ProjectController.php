@@ -28,8 +28,8 @@ class ProjectController extends Controller
     }
 
     public function show($id) {
-      $project = Project::where('id', $id)->get();
-    //  return $project;
+      $project = Project::where('id', $id)->first();
+  //    return $project->insperations;
       return view('account/projects/show', compact('project'));
     }
 
@@ -48,6 +48,7 @@ class ProjectController extends Controller
     public function update(Request $request, $id) {
 
       Project::where('id', $id)->update(['title' => $request->title]);
+    //  return $request;
       return back();
     }
 
