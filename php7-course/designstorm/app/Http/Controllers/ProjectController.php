@@ -53,7 +53,7 @@ class ProjectController extends Controller
 
     public function destroy($id) {
       Project::where('id', $id)->delete();
-      return "delete project";
+      return redirect('account/projects');
     }
 
 }

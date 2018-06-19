@@ -26,12 +26,18 @@
     a string original is above , when a number it has to be in {''} as below-->
                           <div style="position: relative; background: url('{{ $insperation->covers->{'404'} }}') no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; height: 200px;">
 
-                          <a href="/projects/insperation/{{$insperation->id}}/add">
+                          <!-- <a href="/projects/insperation/{{$insperation->id}}/add/{{ $insperation->covers->{'404'} }}">  -->
+                          @php
+                            $encodedUrl = urlencode($insperation->covers->original);
+
+                          @endphp
+                            <a href="/projects/insperation/{{$insperation->id}}/add?image_url={{ $encodedUrl }}">
                             <div class="add-btn ">
                               <i class="fa fa-check" aria-hidden="true">
                               </i>
                             </div>
                           </a>
+
                         </div>
                         <h4>{{ $insperation->name }}</h4>
                       </div>
