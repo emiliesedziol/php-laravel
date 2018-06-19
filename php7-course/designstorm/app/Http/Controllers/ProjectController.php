@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use Auth;
 
 class ProjectController extends Controller
 {
 
   public function index() {
-    $projects = Project::all();
+    $projects = Project::where('user_id', Auth::id())->get();
     // return $projects;
     return view('account/projects/index', compact('projects'));
   }
@@ -22,14 +23,17 @@ class ProjectController extends Controller
 
       $project = new Project();
 
-      $project::create($request->all());
+      $project::create([
+        "title" => $request->title,
+        "user_id" => Auth::id()
+      ]);
 
       return redirect('account/projects');
     }
 
     public function show($id) {
       $project = Project::where('id', $id)->first();
-  //    return $project->insperations;
+    //  return $project;
       return view('account/projects/show', compact('project'));
     }
 
@@ -47,15 +51,21 @@ class ProjectController extends Controller
 
     public function update(Request $request, $id) {
 
-      Project::where('id', $id)->update(['title' => $request->title]);
+        Project::where('id', $id)->where('user_id', Auth::id())->update(['title' => $request->title]);
+
+
     //  return $request;
       return back();
     }
 
     public function destroy($id) {
       $project = Project::where('id', $id)->first();
-      $project->deleteRelated();
+      if ($project->user_id == Auth::id()) {
+        $project->deleteRelated();
+      }
+      // always redirect to account/projects
       return redirect('account/projects');
+
     }
 
 }

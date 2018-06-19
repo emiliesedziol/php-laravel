@@ -10,6 +10,12 @@
   <div class="row">
     <div class="col-md-10">
       <h1>{{ $project->title }}</h1>
+      <h2>
+          User:
+        <strong style="color: green">
+            {{ $project->user->name }}
+        </strong>
+      </h2>
     </div>
   </div>
   <div class="row">

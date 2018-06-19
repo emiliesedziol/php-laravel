@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'user_id'];
 
     public function insperations() {
 
@@ -16,5 +16,9 @@ class Project extends Model
       $this->insperations()->delete();
 
       return parent::delete();
+    }
+
+    public function user() {
+      return $this->belongsTo('App\User');
     }
 }
