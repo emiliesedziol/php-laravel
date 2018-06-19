@@ -30,5 +30,6 @@ Route::get('/search/{keyword}', 'PageController@search');
 
 
 Route::get('/projects/insperation/{image_info}/add', 'InsperationController@create')->middleware('auth');
+Route::get('/projects/insperation/{image_info}/delete', 'InsperationController@destroy')->middleware('auth');
 
 Auth::routes();

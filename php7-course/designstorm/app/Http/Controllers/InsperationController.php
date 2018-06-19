@@ -15,6 +15,13 @@ class InsperationController extends Controller
         "project_id" => 1
       ];
       $insperation = Insperation::create($saveData);
-      return 'save the Data';
+      return back();
+    }
+
+    public function destroy($image_info) {
+      $insperation = Insperation::where('image_info', $image_info);
+      $insperation->delete();
+      return back();
+
     }
 }
