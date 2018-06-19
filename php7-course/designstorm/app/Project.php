@@ -12,4 +12,9 @@ class Project extends Model
 
       return $this->hasMany('App\Insperation');
     }
+    public function deleteRelated() {
+      $this->insperations()->delete();
+
+      return parent::delete();
+    }
 }
