@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Client;
+use App\Project;
 
 
 // public function __construct()
@@ -29,27 +30,22 @@ class PageController extends Controller
     public function search(request $request, $keyword) {
       $client = new Client();
 
-      $res = $client->request('GET',
-        "https://api.behance.net/v2/projects",
-        ["query" => [
-          "q"=>$request->keyword,
-          "client_id" => env("BEHANCE_KEY")
-          ]]);
+      $res = $client->request('GET', "https://api.behance.net/v2/projects?q=".urlencode($keyword) ."&client_id=".env("BEHANCE_KEY")."&field=".urlencode("web design"));
 
       $data = $res->getBody();
       $data = json_decode($data);
-      $filteredData =[];
+      $filteredData =$data->projects;
 
-      foreach($data->projects as $project) {
-        $fields = $project->fields;
-        if (in_array("Web Design", $fields)) {
-          $filteredData[] = $project;
-        }
+
+      $insperationsArray = Project::where('user_id', Auth::id())->where('active', 1)->first();
+
+      $insperationsArray = $insperationsArray->insperations;
+
+      $imageInfoArray = [];
+      foreach($insperationsArray as $image) {
+        array_push($imageInfoArray, $image->image_info);
       }
-
-//  return $filteredData;
-
       $user = Auth::user();
-      return view('pages/results', compact('user', 'filteredData', 'keyword'));
+      return view('pages/results', compact('user', 'filteredData', 'keyword', 'imageInfoArray'));
     }
 }

@@ -25,7 +25,8 @@ class ProjectController extends Controller
 
       $project::create([
         "title" => $request->title,
-        "user_id" => Auth::id()
+        "user_id" => Auth::id(),
+        "active" => 1
       ]);
 
       return redirect('account/projects');
