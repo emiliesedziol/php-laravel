@@ -22,6 +22,7 @@ class InsperationController extends Controller
           "image_url" => $request->image_url,
           "project_id" => $project->id
         ];
+        return $project;
         $insperation = Insperation::create($saveData);
         return back();
     }

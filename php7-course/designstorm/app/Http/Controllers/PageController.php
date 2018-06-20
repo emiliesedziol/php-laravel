@@ -16,8 +16,10 @@ use App\Project;
 class PageController extends Controller
 {
     public function index() {
+      $project = Project::where('user_id', Auth::id())->select('title')->get();
+      return $project;
       $user = Auth::user();
-      return view('pages/home', compact('user'));
+      return view('pages/home', compact('user', project));
     }
 
     public function results(request $request) {
