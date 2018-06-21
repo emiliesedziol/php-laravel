@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Insperation extends Model
 {
-    protected $fillable = ['image_url', 'image_info', 'project_id'];
+    protected $fillable = ['image_url', 'image_info', 'projectId', 'id'];
 
     public function project() {
 

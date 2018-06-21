@@ -25,11 +25,10 @@ Route::get('/account/projects/{id}/delete', 'ProjectController@destroy');
 Route::get('/', 'PageController@index');
 Route::post('/results', 'PageController@results');
 Route::get('/search', 'PageController@index');
-Route::get('/search/{keyword}', 'PageController@search');
+Route::get('/search/{keyword}/{projectId}', 'PageController@search');
 
 
-
-Route::get('/projects/insperation/{image_info}/add', 'InsperationController@create')->middleware('auth');
+Route::get('/projects/insperation/{image_info}/add/{projectId}', 'InsperationController@create')->middleware('auth');
 Route::get('/projects/insperation/{image_info}/delete', 'InsperationController@destroy')->middleware('auth');
 
 Auth::routes();

@@ -15,21 +15,28 @@ use App\Project;
 
 class PageController extends Controller
 {
+  public $useProject;
+  public function __construct() {
+    $this->useProject = 1; // default
+  }
     public function index() {
-      $project = Project::where('user_id', Auth::id())->select('title')->get();
-      return $project;
+      $project = Project::where('user_id', Auth::id())->select('id', 'title')->get();
+//      return $project;
       $user = Auth::user();
-      return view('pages/home', compact('user', project));
+      return view('pages/home', compact('user', 'project'));
     }
 
     public function results(request $request) {
-
       $keyword = $request->keyword;
+      $useProject = $request->useProject;
+      $useId = explode(" ", $useProject);
+      $projectId = $useId[0];
 
-      return redirect("search/".$keyword);
+      return redirect("search/".$keyword."/".$projectId);
     }
 
-    public function search(request $request, $keyword) {
+
+    public function search(request $request, $keyword, $projectId) {
       $client = new Client();
 
       $res = $client->request('GET', "https://api.behance.net/v2/projects?q=".urlencode($keyword) ."&client_id=".env("BEHANCE_KEY")."&field=".urlencode("web design"));
@@ -38,6 +45,7 @@ class PageController extends Controller
       $data = json_decode($data);
       $filteredData =$data->projects;
 
+      $project = Project::where('id', $projectId)->get();
 
       $insperationsArray = Project::where('user_id', Auth::id())->where('active', 1)->first();
 
@@ -48,6 +56,6 @@ class PageController extends Controller
         array_push($imageInfoArray, $image->image_info);
       }
       $user = Auth::user();
-      return view('pages/results', compact('user', 'filteredData', 'keyword', 'imageInfoArray'));
+      return view('pages/results', compact('user', 'filteredData', 'keyword', 'imageInfoArray', 'projectId'));
     }
 }

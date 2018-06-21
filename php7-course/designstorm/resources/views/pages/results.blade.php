@@ -6,6 +6,7 @@
 
 @section('content')
     <div id="site-section">
+      <h1>{{ $projectId }}</h1>
       <div class="container">
         <div id="results">
           <div>
@@ -29,7 +30,7 @@
                           @php
                             $encodedUrl = urlencode($insperation->covers->original);
                           @endphp
-                            <a href="/projects/insperation/{{$insperation->id}}/add?image_url={{ $encodedUrl }}">
+                            <a href="/projects/insperation/{{$insperation->id}}/add/{{ $projectId }}?image_url={{ $encodedUrl }}">
                             <div class="add-btn @if(in_array($insperation->id, $imageInfoArray))
                               active
                               @endif">
