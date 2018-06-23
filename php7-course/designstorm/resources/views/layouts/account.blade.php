@@ -13,8 +13,8 @@
       <div id="sidemenu">
         <div class="logo"> </div>
         <nav>
-          <a class="active" href="account/">
-            <i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard
+          <a class="active" href="/">
+            <i class="fa fa-tachometer" aria-hidden="true"></i>Search
           </a>
           <a class="active" href="/account/projects">
             <i class="fa fa-briefcase" aria-hidden="true"></i>Projects

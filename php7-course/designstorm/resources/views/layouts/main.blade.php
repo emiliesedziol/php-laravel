@@ -15,6 +15,7 @@
           @guest
             <a href="/register">register</a>
             <a href="/login">login</a>
+            <a href="/account">Dashboard</a>
           @else
             <a href="/account">{{ $user->name}}</a>
             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -22,7 +23,7 @@
                          document.getElementById('logout-form').submit();">
             {{ __('Logout') }}
             </a>
-
+            <a href="/account">Dashboard</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
             </form>
